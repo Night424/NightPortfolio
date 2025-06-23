@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NightDev | Software Developer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+    <div class="logo">NightDev</div>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <canvas id="bg-particles"></canvas>
+    <div class="hero-content">
+      <h1><span id="typed-text" class="purple"></span></h1>
+      <p class="subtitle">Building tools, automations, and Minecraft magic</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>🧠 About Me</h2>
+    <div class="bio">
+      <p>I’m a software developer focused on full-stack web and desktop app development. Whether it’s building a Minecraft server tool or a traffic analyzer, I aim to make tools that are both useful and cool.</p>
+      <ul class="timeline">
+        <li><span>2023</span> – Built first Electron app (MC setup tool)</li>
+        <li><span>2024</span> – Explored Java + React network monitoring stack</li>
+        <li><span>2025</span> – Currently studying + taking freelance projects</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>🚀 Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>🧩 MC Server Setup Tool</h3>
+        <p>Electron GUI to set up and control Minecraft servers with mod/version support.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>🌐 Network Traffic Analyzer</h3>
+        <p>Packet sniffer + dashboard using Java + React. Modular and visual.</p>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>💻 Skills</h2>
+    <div class="skills-tags">
+      <span>JavaScript</span><span>Electron</span><span>React</span><span>C#</span><span>ASP.NET Core</span><span>SQL Server</span><span>MongoDB</span><span>Linux</span><span>Azure</span><span>Git</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Get In Touch</h2>
+    <div class="contact-links">
+      <a href="mailto:you@example.com">Email</a>
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 NightDev. Built with caffeine & console logs ☕</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+  <script>
+  // Typing animation
+  const texts = ["Hi, I'm Night.", "Full-stack Dev.", "Minecraft App Creator.", "JavaScript & .NET Enthusiast."];
+  let i = 0, j = 0, currentText = "", isDeleting = false;
+
+  function type() {
+    document.getElementById("typed-text").textContent = currentText;
+
+    if (!isDeleting && j < texts[i].length) {
+      currentText += texts[i][j++];
+      setTimeout(type, 150);
+    } else if (isDeleting && j > 0) {
+      currentText = currentText.slice(0, --j);
+      setTimeout(type, 30);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) {
+        i = (i + 1) % texts.length;
+      }
+      setTimeout(type, 1000);
+    }
+  }
+  type();
+</script>
+</html>
