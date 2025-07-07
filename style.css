@@ -396,6 +396,27 @@ h2 i {
   border: 1px solid rgba(138, 43, 226, 0.3);
 }
 
+/* Plans Section */
+#plans .terminal-container {
+  display: block;
+  padding: 1.5rem 2rem;
+  max-width: 100%;
+  background: #0a0a0a;
+  border: 1px solid #5a3ea5;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #b388ff55;
+  padding: 1.5rem;
+}
+
+#plans .terminal-output {
+  font-size: 1.05rem;
+  color: #d3d3f9;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word; /* Ensures long lines don’t overflow */
+  margin: 0; /* No extra margin */
+}
+
 /* Contact Section */
 .contact-container {
   display: grid;
