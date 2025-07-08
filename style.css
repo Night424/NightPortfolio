@@ -324,8 +324,11 @@ h2 i {
 }
 
 .project-links {
-  display: flex;
-  gap: 1rem;
+  pointer-events: auto;
+  z-index: 10;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .btn {
