@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NightDev | Software Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="description" content="NightDev's Portfolio - Full-stack developer specializing in web and desktop applications">
+  <title>NightDev | Full-Stack Developer</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="script.js" as="script">
 </head>
 <body>
   <div class="intro-animation">
@@ -15,170 +19,187 @@
 
   <header>
     <nav>
-      <div class="logo">NightDev</div>
-      <input type="checkbox" id="nav-toggle" />
-      <label for="nav-toggle" class="hamburger">&#9776;</label>
+      <div class="logo" aria-label="NightDev Logo">NightDev</div>
+      <input type="checkbox" id="nav-toggle" aria-label="Mobile menu toggle" />
+      <label for="nav-toggle" class="hamburger" aria-hidden="true">&#9776;</label>
       <ul class="nav-links">
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#plans" class="nav-link">Plans</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="home" class="hero">
-    <canvas id="bg-particles"></canvas>
-    <div class="hero-content">
-      <h1><span id="typed-text" class="purple"></span></h1>
-      <p class="subtitle">Building tools, automations, and useful apps</p>
-    </div>
-  </section>
+  <main>
+    <section id="home" class="hero">
+      <canvas id="bg-particles" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <h1><span id="typed-text" class="purple" aria-live="polite"></span></h1>
+        <p class="subtitle">Building tools, automations, and useful apps</p>
+        <a href="#projects" class="btn btn-primary" style="margin-top: 2rem;">View My Work</a>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll Down</span>
+        <div class="mouse"></div>
+      </div>
+    </section>
 
-  <section id="about">
-    <div class="section-container">
-      <h2><i class="fas fa-brain"></i> About Me</h2>
-      <div class="bio">
-        <p>I'm a software developer focused on full-stack web and desktop app development. Whether it's building a Minecraft server tool or a traffic analyzer, I aim to make tools that are both useful and cool.</p>
-        <div class="timeline-container">
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>2023</h3>
-                <p>Learned basic python with Programming Foundation</p>
+    <section id="about" class="section">
+      <div class="section-container">
+        <h2><i class="fas fa-brain" aria-hidden="true"></i> About Me</h2>
+        <div class="bio">
+          <p>I'm a software developer focused on full-stack web and desktop app development. Whether it's building a Minecraft server tool or a traffic analyzer, I aim to make tools that are both useful and cool.</p>
+          <div class="timeline-container">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h3>2023</h3>
+                  <p>Learned basic python with Programming Foundation</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h3>2024</h3>
+                  <p>Explored Java + React network monitoring stack</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h3>2025</h3>
+                  <p>Built first Electron app (MC setup tool)</p>
+                </div>
               </div>
             </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>2024</h3>
-                <p>Explored Java + React network monitoring stack</p>
-              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-container">
+        <h2><i class="fas fa-rocket" aria-hidden="true"></i> Projects</h2>
+        <div class="project-grid">
+          <div class="project-card fade-in">
+            <div class="project-icon"><i class="fas fa-puzzle-piece" aria-hidden="true"></i></div>
+            <h3>MC Server Setup Tool</h3>
+            <p>Electron GUI to set up and control Minecraft servers with mod/version support.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary">View Project</a>
             </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>2025</h3>
-                <p>Built first Electron app (MC setup tool)</p>
-              </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
+            <h3>Network Traffic Analyzer</h3>
+            <p>Packet sniffer + dashboard using Java + React. Modular and visual.</p>
+            <div class="project-links">
+              <a href="https://github.com/Night424/NTAnalyser" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-icon"><i class="fas fa-key" aria-hidden="true"></i></div>
+            <h3>Password Strength Analyzer</h3>
+            <p>A password strength tester that gives recommendations.</p>
+            <div class="project-links">
+              <a href="https://github.com/Night424/PSAnalyser" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects">
-    <div class="section-container">
-      <h2><i class="fas fa-rocket"></i> Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-puzzle-piece"></i></div>
-          <h3>MC Server Setup Tool</h3>
-          <p>Electron GUI to set up and control Minecraft servers with mod/version support.</p>
-          <div class="project-links">
-            <a href="#" class="btn btn-primary">View Project</a>
+    <section id="skills" class="section">
+      <div class="section-container">
+        <h2><i class="fas fa-laptop-code" aria-hidden="true"></i> Skills</h2>
+        <div class="skills-container">
+          <div class="skill-category fade-in">
+            <h3>Frontend</h3>
+            <div class="skills-tags">
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>HTML/CSS</span>
+              <span>Electron</span>
+            </div>
           </div>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-network-wired"></i></div>
-          <h3>Network Traffic Analyzer</h3>
-          <p>Packet sniffer + dashboard using Java + React. Modular and visual.</p>
-          <div class="project-links">
-            <a href="https://github.com/Night424/NTAnalyser" target="_blank" class="btn btn-secondary">GitHub</a>
+          <div class="skill-category fade-in">
+            <h3>Backend</h3>
+            <div class="skills-tags">
+              <span>Node.js</span>
+              <span>ASP.NET Core</span>
+              <span>Java</span>
+              <span>Python</span>
+            </div>
           </div>
-        </div>
-          <div class="project-card">
-          <div class="project-icon"><i class="fas fa-key"></i></div>
-          <h3>Password Strength Analyzer</h3>
-          <p>A password strength tester that gives recommendations.</p>
-          <div class="project-links">
-            <a href="https://github.com/Night424/PSAnalyser" target="_blank" class="btn btn-secondary">GitHub</a>
+          <div class="skill-category fade-in">
+            <h3>Tools</h3>
+            <div class="skills-tags">
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>Docker</span>
+              <span>Azure</span>
+              <span>VS Code</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills">
-    <div class="section-container">
-      <h2><i class="fas fa-laptop-code"></i> Skills</h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3>Frontend</h3>
-          <div class="skills-tags">
-            <span>JavaScript</span>
-            <span>React</span>
-            <span>HTML/CSS</span>
-          </div>
+    <section id="plans" class="section">
+      <div class="section-container">
+        <h2><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Future Plans</h2>
+        <div class="terminal-container fade-in">
+          <pre class="terminal-output">
+            > roadmap
+
+            - Release open source CLI + GUI tools
+            - Build an indie game with Unity & Blender
+            - Create a SaaS-style app with React, ASP.NET Core & MongoDB
+            - Learn Rust or Go for systems-level tools
+            - Collaborate on open-source & freelance projects
+          </pre>
         </div>
-        <div class="skill-category">
-          <h3>Backend</h3>
-          <div class="skills-tags">
-            <span>Node.js</span>
-            <span>ASP.NET Core</span>
-            <span>Java</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Tools</h3>
-          <div class="skills-tags">
-            <span>Git</span>
-            <span>Docker</span>
-            <span>Azure</span>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-container">
+        <h2><i class="fas fa-envelope" aria-hidden="true"></i> Get In Touch</h2>
+        <div class="contact-container">
+          <div class="contact-info fade-in">
+            <p>Have a project in mind or want to collaborate?</p>
+            <div class="contact-links">
+              <a href="mailto:keanevgps3@gmail.com" class="contact-link">
+                <i class="fas fa-envelope" aria-hidden="true"></i> Email
+              </a>
+              <a href="https://github.com/Night424" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <i class="fab fa-github" aria-hidden="true"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/keane-van-gass-20b479267/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="plans">
-    <div class="section-container">
-      <h2><i class="fas fa-map-marked-alt"></i> Future Plans</h2>
-      <div class="terminal-container">
-        <pre class="terminal-output">
-          > roadmap
-
-          - Release open source CLI + GUI tools
-          - Build an indie game with Unity & Blender
-          - Create a SaaS-style app with React, ASP.NET Core & MongoDB
-          - Learn Rust or Go for systems-level tools
-          - Collaborate on open-source & freelance projects
-        </pre>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="section-container">
-      <h2><i class="fas fa-envelope"></i> Get In Touch</h2>
-      <div class="contact-container">
-        <div class="contact-info">
-          <p>Have a project in mind or want to collaborate?</p>
-          <div class="contact-links">
-            <a href="mailto:keanevgps3@gmail.com" class="contact-link">
-              <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="https://github.com/Night424" target="_blank" class="contact-link">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/keane-van-gass-20b479267/" target="_blank" class="contact-link">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 NightDev. Built with caffeine & console logs <i class="fas fa-coffee"></i></p>
+      <p>&copy; <span id="current-year">2025</span> NightDev. Built with caffeine & console logs <i class="fas fa-coffee" aria-hidden="true"></i></p>
+      <div class="social-links">
+        <a href="https://github.com/Night424" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/keane-van-gass-20b479267/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:keanevgps3@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
