@@ -161,7 +161,7 @@ function initParticles() {
 }
 
 function startTypingAnimation() {
-  const texts = ["Hi, I'm Night.", "Full-stack Developer.", "Minecraft App Creator.", "JavaScript & .NET Enthusiast."];
+  const texts = ["Hi, I'm Keane.", "Developer.", "Minecraft App Creator.", "JavaScript & .NET Enthusiast."];
   let i = 0, j = 0, currentText = "", isDeleting = false;
   let typingSpeed = 150;
   let deletingSpeed = 30;
