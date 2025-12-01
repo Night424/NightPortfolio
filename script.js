@@ -11,13 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Start typing animation after intro
       startTypingAnimation();
-      
-      // Initialize particles AFTER intro completes
-      initParticles();
     }, 500);
   }, 2000);
 
-  // Smooth scroll for navigation links
+  // Smooth scroll for navigation links with better handling
   document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -25,8 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetSection = document.querySelector(targetId);
       
       if (targetSection) {
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const targetPosition = targetSection.offsetTop - headerHeight;
+        
         window.scrollTo({
-          top: targetSection.offsetTop - 80,
+          top: targetPosition,
           behavior: 'smooth'
         });
         
@@ -36,41 +36,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Scroll-triggered animations
+  // Enhanced scroll-triggered animations with staggered effect
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
+        // Add staggered delay for cards
+        const delay = index * 100;
+        entry.target.style.transitionDelay = `${delay}ms`;
         entry.target.classList.add('visible');
-        
-        // Add special animations for project cards
-        if (entry.target.classList.contains('project-card')) {
-          entry.target.style.transitionDelay = `${entry.target.dataset.delay || '0'}ms`;
-        }
       }
     });
   }, {
-    threshold: 0.1
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
   });
 
-  document.querySelectorAll('.fade-in').forEach((el, index) => {
-    if (el.classList.contains('project-card')) {
-      el.dataset.delay = index * 100;
-    }
+  // Observe all fade-in elements
+  document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
   });
 
-  // Active nav link on scroll
+  // Enhanced active nav link tracking with smooth updates
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-link");
   
-  window.addEventListener('scroll', () => {
+  const updateActiveLink = () => {
     let current = '';
     
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
+      const scrollY = window.scrollY;
       
-      if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+      if (scrollY >= sectionTop - 200 && scrollY < sectionTop + sectionHeight - 200) {
         current = section.getAttribute('id');
       }
     });
@@ -81,87 +79,29 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.add('active');
       }
     });
+  };
+  
+  // Debounce scroll event for better performance
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveLink();
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
+  
+  // Initial active link setup
+  updateActiveLink();
+
+  // Add smooth page load animation
+  document.documentElement.style.scrollBehavior = 'smooth';
 });
 
-function initParticles() {
-  const canvas = document.getElementById("bg-particles");
-  const ctx = canvas.getContext("2d");
-  let particles = [];
-  const particleCount = window.innerWidth < 768 ? 50 : 100;
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    createParticles(particleCount);
-  });
-
-  function createParticles(count) {
-    particles = [];
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 3 + 1,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5,
-        alpha: Math.random() * 0.5 + 0.5
-      });
-    }
-  }
-
-  function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Draw connecting lines
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        if (distance < 150) {
-          ctx.strokeStyle = `rgba(179, 136, 255, ${1 - distance/150})`;
-          ctx.lineWidth = 0.5;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-    
-    // Draw particles
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(179, 136, 255, ${p.alpha})`;
-      ctx.fill();
-      
-      // Update position
-      p.x += p.dx;
-      p.y += p.dy;
-      
-      // Bounce off edges
-      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-    });
-    
-    requestAnimationFrame(drawParticles);
-  }
-
-  // Initialize
-  resizeCanvas();
-  createParticles(particleCount);
-  drawParticles();
-}
-
 function startTypingAnimation() {
-  const texts = ["Hi, I'm Keane.", "Developer.", "Minecraft App Creator.", "JavaScript & .NET Enthusiast."];
+  const texts = ["Hi, I'm Keane.", "Cybersecurity Student.", "Aspiring SOC Analyst.", "Threat Detection."];
   let i = 0, j = 0, currentText = "", isDeleting = false;
   let typingSpeed = 150;
   let deletingSpeed = 30;
