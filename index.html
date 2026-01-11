@@ -25,9 +25,12 @@
       <ul class="nav-links">
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#plans" class="nav-link">Plans</a></li>
+        <li><a href="#plans" class="nav-link">Future Plans</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
@@ -37,7 +40,7 @@
     <section id="home" class="hero">
       <div class="hero-content">
         <h1><span id="typed-text" class="purple" aria-live="polite"></span></h1>
-        <p class="subtitle">Cybersecurity enthusiast building defensive skills and threat detection systems</p>
+        <p class="cv-summary">Hands-on SIEM homelab experience, threat detection, and incident response labs. Actively pursuing SOC and Development roles.</p>
         <a href="#projects" class="btn btn-primary" style="margin-top: 2rem;">View My Work</a>
         <a href="blog.html" class="btn btn-secondary" style="margin-top: 1rem;" target="_blank" rel="noopener noreferrer">Read My Blog</a>
       </div>
@@ -51,31 +54,85 @@
       <div class="section-container">
         <h2><i class="fas fa-shield-alt" aria-hidden="true"></i> About Me</h2>
         <div class="bio">
-          <p>I'm a cybersecurity student passionate about defensive security and SOC operations. I'm building practical security knowledge through hands-on homelab projects, threat detection systems, and security tools. My goal is to become a skilled SOC analyst capable of detecting, analyzing, and responding to security threats.</p>
-          <div class="timeline-container">
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h3>2023</h3>
-                  <p>Started with Python and Programming Foundation</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h3>2024</h3>
-                  <p>Explored Java and Azure in Software Development</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h3>2025</h3>
-                  <p>Got Cybersecurity Certification and started building a homelab SIEM infrastructure; pursuing SOC analyst role</p>
-                </div>
-              </div>
-            </div>
+          <p class="bio-summary">Cybersecurity student focused on SIEM, detection engineering, and incident response. Experienced building homelab detection pipelines and security automation; pursuing SOC Analyst roles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-container">
+        <h2>Experience</h2>
+        <div class="experience-list">
+          <div class="experience-item">
+            <h3>Intern Developer (OptiDB) <span class="time">July 2025 - November 2025</span></h3>
+            <p>Built offline-first functionality using PouchDB for local data storage and developed a GraphQL-based synchronization system to upload offline data once connectivity was restored. Added a real-time network status indicator to improve user awareness, while improving overall application reliability.</p>
+          </div>
+
+          <div class="experience-item">
+            <h3>SOC Analyst Homelab (Self-Directed) <span class="time">2025–Present</span></h3>
+            <ul>
+              <li>Built SIEM homelab to aggregate and normalize logs from multiple sources.</li>
+              <li>Implemented detection rules and alerting workflows; validated alerts via test cases.</li>
+              <li>Developed automated playbooks for triage and incident response.</li>
+              <li>Produced analysis reports and dashboards to measure detection coverage.</li>
+            </ul>
+          </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="section-container">
+        <h2>Certifications</h2>
+        <ul class="cert-list">
+          <li>IT Specialist (HTML and CSS)</li>
+          <li>Microsoft Certified: Azure Data Fundamentals</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-container">
+        <h2>Education & Coursework</h2>
+        <div class="education-grid">
+          <div class="education-year">
+            <h3>Year 1 (2023)</h3>
+            <h4>Programming Foundation</h4>
+            <ul>
+              <li>Computer Architecture (PFCAF411)</li>
+              <li>Cloud Fundamentals (PFCF412)</li>
+              <li>Core Web Development (PFCWD412)</li>
+              <li>Digital Literacy & Proficiency (PFDLP411)</li>
+              <li>Ethics and Network Architecture (PFENA412)</li>
+              <li>Principles of Programme Design (PFPPD411)</li>
+              <li>Programming with Python (PFPRP411)</li>
+              <li>Robotic Development (PFRD412)</li>
+            </ul>
+          </div>
+
+          <div class="education-year">
+            <h3>Year 2 (2024)</h3>
+            <h4>Software Development</h4>
+            <ul>
+              <li>Advanced Java (JD522)</li>
+              <li>Beginner Java (JD521)</li>
+              <li>Business Programming (PRG522)</li>
+              <li>Developers and Operations Engineering (DOE522)</li>
+              <li>Programming with C# (PRG521)</li>
+              <li>Solutions Development (SLD521)</li>
+            </ul>
+          </div>
+
+          <div class="education-year">
+            <h3>Year 3 (2025)</h3>
+            <h4>Cybersecurity</h4>
+            <ul>
+              <li>Administering Database Infrastructure (ADI632)</li>
+              <li>Advanced Design Patterns (ADP631)</li>
+              <li>Advanced Server Security (AD632)</li>
+              <li>Cybersecurity Professional Practice (CSP632)</li>
+              <li>Data Solution Development (DSD631)</li>
+              <li>IT Project Management (ITP631)</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -88,7 +145,8 @@
           <div class="project-card fade-in">
             <div class="project-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
             <h3>Homelab SIEM Infrastructure</h3>
-            <p>Full-stack SIEM homelab.</p>
+            <p>Built a homelab SIEM to centralize log collection, parsing, and detection; developed detection rules and alerting pipelines to validate coverage.</p>
+            <p class="tech-used"><strong>Technologies used:</strong>Wazuh Manager & Dashboard, Ubuntu Server (VM), Windows 10/11 Endpoint, Sysmon</p>
             <div class="project-links">
               <a href="https://github.com/Night424/SOCAnalystSIEMProject" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
             </div>
@@ -96,7 +154,8 @@
           <div class="project-card fade-in">
             <div class="project-icon"><i class="fas fa-puzzle-piece" aria-hidden="true"></i></div>
             <h3>MC Server Setup Tool</h3>
-            <p>Electron GUI to set up and control Minecraft servers with mod/version support.</p>
+            <p>Automated server provisioning and management tool that simplifies configuration and mod management; demonstrates full-stack application packaging and deployment.</p>
+            <p class="tech-used"><strong>Technologies used:</strong> Electron, Node.js, JavaScript, HTML, CSS</p>
             <div class="project-links">
               <a href="https://github.com/Night424/NightsAutoMCSetup" class="btn btn-primary">View Project</a>
             </div>
@@ -104,7 +163,8 @@
           <div class="project-card fade-in">
             <div class="project-icon"><i class="fas fa-key" aria-hidden="true"></i></div>
             <h3>Password Strength Analyzer</h3>
-            <p>A password strength tester that gives recommendations.</p>
+            <p>Analyzed password entropy and provided actionable remediation guidance to improve credential hygiene; useful for security assessments and user guidance.</p>
+            <p class="tech-used"><strong>Technologies used:</strong> Java</p>
             <div class="project-links">
               <a href="https://github.com/Night424/PSAnalyser" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
             </div>
@@ -112,7 +172,8 @@
           <div class="project-card fade-in">
             <div class="project-icon"><i class="fas fa-bug" aria-hidden="true"></i></div>
             <h3>Malware Sandbox</h3>
-            <p>Group project: Analyzes and contains malware samples in a controlled environment. Features automated reporting and collaborative analysis tools.</p>
+            <p>Automated analysis and containment environment for malware samples; produced reports and indicators used for threat research and SIEM test cases.</p>
+            <p class="tech-used"><strong>Technologies used:</strong> Python, ElectronJS</p>
             <div class="project-links">
               <a href="https://github.com/Night424/sandboxSimulator" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
             </div>
@@ -126,36 +187,34 @@
         <h2><i class="fas fa-laptop-code" aria-hidden="true"></i> Skills</h2>
         <div class="skills-container">
           <div class="skill-category fade-in">
-            <h3>Programming Languages</h3>
+            <h3>Programming & Scripting</h3>
             <div class="skills-tags">
-              <span>Java</span>
-              <span>JavaScript</span>
-              <span>C#</span>
-              <span>SQL</span>
               <span>Python</span>
+              <span>JavaScript</span>
+              <span>Java</span>
+              <span>SQL</span>
+              <span>Bash</span>
             </div>
           </div>
 
           <div class="skill-category fade-in">
-            <h3>Tools & Frameworks</h3>
-            <div class="skills-tags">
-              <span>Git</span>
-              <span>Docker</span>
-              <span>Azure</span>
-              <span>React / Node.js</span>
-              <span>ASP.NET Core</span>
-            </div>
-          </div>
-
-          <div class="skill-category fade-in">
-            <h3>Operational & Business Skills</h3>
+            <h3>Security & SOC Skills</h3>
             <div class="skills-tags">
               <span>SIEM</span>
+              <span>Log Analysis</span>
               <span>Threat Hunting</span>
-              <span>SQL Performance</span>
-              <span>Dashboards & Reporting</span>
-              <span>ETL Pipelines</span>
               <span>Incident Response</span>
+              <span>Malware Analysis</span>
+              <span>SQL for Analytics</span>
+            </div>
+          </div>
+
+          <div class="skill-category fade-in">
+            <h3>Tools & Platforms</h3>
+            <div class="skills-tags">
+              <span>Docker</span>
+              <span>Azure</span>
+              <span>Git</span>
             </div>
           </div>
         </div>
@@ -167,19 +226,14 @@
         <h2><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Future Plans</h2>
         <div class="terminal-container fade-in">
           <pre class="terminal-output">
-            > roadmap
+> roadmap
 
-            - Complete homelab SIEM infrastructure (in progress)
-            - Deploy log aggregation and alerting systems
-            - Build automated threat detection playbooks
-            - Set up honeypots for threat research
-            - Complete incident response simulation labs
-            - Pursue CEH (Certified Ethical Hacker) certification
-            - Obtain Security+ certification
-            - Develop custom SIEM detection rules
-            - Contribute to open-source security projects
-            - Land first SOC analyst role
-          </pre>
+- Expand SOC skills: detection engineering and incident response
+- Deploy and validate detection rules and alerting pipelines
+- Complete Security+ 
+- Develop detection playbooks and automated triage
+- Career goal: Secure a SOC Analyst role
+        </pre>
         </div>
       </div>
     </section>
@@ -200,6 +254,7 @@
               <a href="https://www.linkedin.com/in/keane-van-gass-20b479267/" target="_blank" rel="noopener noreferrer" class="contact-link">
                 <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
               </a>
+              <a href="#" download class="contact-link btn btn-secondary" title="Download CV (PDF)">Download CV (PDF)</a>
             </div>
           </div>
         </div>
@@ -209,7 +264,8 @@
 
   <footer>
     <div class="footer-content">
-      <p>&copy; <span id="current-year">2025</span> NightDev<i aria-hidden="true"></i></p>
+      <p>&copy; <span id="current-year">2025</span> NightDev</p>
+      <p class="footer-tagline">SOC Analyst | Cybersecurity</p>
     </div>
   </footer>
 
