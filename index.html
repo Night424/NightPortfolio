@@ -3,271 +3,304 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="NightDev's Portfolio - Cybersecurity Student pursuing SOC Analyst role with hands-on homelab experience">
-  <title>NightDev | Cybersecurity</title>
+  <meta name="description" content="Keane 'NightDev' - Cybersecurity Student & SOC Analyst in training. MySpace-style dev profile.">
+  <title>Keane (NightDev) | myProfile</title>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
-  <link rel="preload" href="script.js" as="script">
 </head>
 <body>
-  <div class="intro-animation">
-    <div class="intro-logo">NightDev</div>
-    <div class="intro-progress"></div>
-  </div>
 
-  <header>
-    <nav>
-      <div class="logo" aria-label="NightDev Logo">NightDev</div>
-      <input type="checkbox" id="nav-toggle" aria-label="Mobile menu toggle" />
-      <label for="nav-toggle" class="hamburger" aria-hidden="true">&#9776;</label>
-      <ul class="nav-links">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#certifications" class="nav-link">Certifications</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#plans" class="nav-link">Future Plans</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- ===== Top Nav Bar ===== -->
+  <header class="ms-topbar">
+    <div class="ms-topbar-inner">
+      <a href="index.html" class="ms-logo">night<span>space</span>.</a>
+      <div class="ms-search">
+        <input type="text" placeholder="Search NightSpace..." aria-label="Search" />
+        <button type="button">Search</button>
+      </div>
+      <nav class="ms-topnav">
+        <a href="#">Home</a>
+        <a href="#projects">Browse</a>
+        <a href="#contact">Mail</a>
+        <a href="#top8">Friends</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h1><span id="typed-text" class="purple" aria-live="polite"></span></h1>
-        <p class="cv-summary">Hands-on SIEM homelab experience, threat detection, and incident response labs. Actively pursuing SOC and Development roles.</p>
-        <a href="#projects" class="btn btn-primary" style="margin-top: 2rem;">View My Work</a>
-        <a href="blog.html" class="btn btn-secondary" style="margin-top: 1rem;" target="_blank" rel="noopener noreferrer">Read My Blog</a>
-      </div>
-      <div class="scroll-hint" aria-hidden="true">
-        <span>Scroll Down</span>
-        <div class="mouse"></div>
-      </div>
-    </section>
+  <!-- ===== Welcome bar ===== -->
+  <div class="ms-welcome">
+    <span>Hello, <b>Keane!</b></span>
+    <span class="ms-welcome-links"><a href="#">My Account</a> | <a href="#">Sign Out</a> | <span id="clock">--:--:--</span></span>
+  </div>
 
-    <section id="about" class="section">
-      <div class="section-container">
-        <h2><i class="fas fa-shield-alt" aria-hidden="true"></i> About Me</h2>
-        <div class="bio">
-          <p class="bio-summary">Cybersecurity student focused on SIEM, detection engineering, and incident response. Experienced building homelab detection pipelines and security automation; pursuing SOC Analyst roles.</p>
+  <!-- ===== Profile Name Banner ===== -->
+  <div class="ms-namebar">
+    <img src="img/stars.gif" alt="" class="ms-stars" aria-hidden="true" />
+    <h1>Keane &nbsp;<span class="blink">★</span>&nbsp;</h1>
+    <img src="img/stars.gif" alt="" class="ms-stars" aria-hidden="true" />
+  </div>
+
+  <marquee class="ms-marquee" scrollamount="6" behavior="scroll" direction="left">
+     welcome 2 my page  currently: junior systems dev @ a solar company cybersecurity grad ✦ now playing: Midnight Voltage ♫ ✦ don't forget to leave a comment!!! 
+  </marquee>
+
+  <!-- ===== Main two column layout ===== -->
+  <main class="ms-layout">
+
+    <!-- ================= LEFT COLUMN ================= -->
+    <aside class="ms-col-left">
+
+      <!-- Profile card -->
+      <section class="ms-panel ms-profilecard">
+        <h2 class="ms-name">Keane V.</h2>
+        <div class="ms-pfp" aria-label="Profile picture">
+          <img src="img/pfp_ps2.jpg" alt="NightDev avatar" />
         </div>
-      </div>
-    </section>
-
-    <section id="experience" class="section">
-      <div class="section-container">
-        <h2>Experience</h2>
-        <div class="experience-list">
-          <div class="experience-item">
-            <h3>Intern Developer (OptiDB) <span class="time">July 2025 - November 2025</span></h3>
-            <p>Built offline-first functionality using PouchDB for local data storage and developed a GraphQL-based synchronization system to upload offline data once connectivity was restored. Added a real-time network status indicator to improve user awareness, while improving overall application reliability.</p>
-          </div>
-
-          <div class="experience-item">
-            <h3>SOC Analyst Homelab (Self-Directed) <span class="time">2025–Present</span></h3>
-            <ul>
-              <li>Built SIEM homelab to aggregate and normalize logs from multiple sources.</li>
-              <li>Implemented detection rules and alerting workflows; validated alerts via test cases.</li>
-              <li>Developed automated playbooks for triage and incident response.</li>
-              <li>Produced analysis reports and dashboards to measure detection coverage.</li>
-            </ul>
-          </div>
-      </div>
-    </section>
-
-    <section id="certifications" class="section">
-      <div class="section-container">
-        <h2>Certifications</h2>
-        <ul class="cert-list">
-          <li>IT Specialist (HTML and CSS)</li>
-          <li>Microsoft Certified: Azure Data Fundamentals</li>
+        <p class="ms-tagline">"I love Modbus registers!"</p>
+        <ul class="ms-quickfacts">
+          <li><b>Night</b></li>
+          <li>Junior Systems Developer</li>
+          <li>Solar / Renewable Energy</li>
+          <li>🌍 South Africa</li>
+          <li><span class="online-dot"></span> Online Now!</li>
+          <li>Last Login: Today</li>
         </ul>
-      </div>
-    </section>
+      </section>
 
-    <section id="education" class="section">
-      <div class="section-container">
-        <h2>Education & Coursework</h2>
-        <div class="education-grid">
-          <div class="education-year">
-            <h3>Year 1 (2023)</h3>
-            <h4>Programming Foundation</h4>
-            <ul>
-              <li>Computer Architecture (PFCAF411)</li>
-              <li>Cloud Fundamentals (PFCF412)</li>
-              <li>Core Web Development (PFCWD412)</li>
-              <li>Digital Literacy & Proficiency (PFDLP411)</li>
-              <li>Ethics and Network Architecture (PFENA412)</li>
-              <li>Principles of Programme Design (PFPPD411)</li>
-              <li>Programming with Python (PFPRP411)</li>
-              <li>Robotic Development (PFRD412)</li>
-            </ul>
-          </div>
+      <!-- Mood -->
+      <section class="ms-panel ms-mood">
+        <p><b>Mood:</b> Huawei</i></p>
+        <p><b>Status:</b> watching dashboards</p>
+      </section>
 
-          <div class="education-year">
-            <h3>Year 2 (2024)</h3>
-            <h4>Software Development</h4>
-            <ul>
-              <li>Advanced Java (JD522)</li>
-              <li>Beginner Java (JD521)</li>
-              <li>Business Programming (PRG522)</li>
-              <li>Developers and Operations Engineering (DOE522)</li>
-              <li>Programming with C# (PRG521)</li>
-              <li>Solutions Development (SLD521)</li>
-            </ul>
-          </div>
+      <!-- Contacting box -->
+      <section class="ms-panel">
+        <h3 class="ms-panel-title">Contacting Keane</h3>
+        <table class="ms-contact-table">
+          <tr>
+            <td><a href="mailto:keanevgps3@gmail.com"><i class="fas fa-envelope"></i> Send Message</a></td>
+            <td><a href="https://github.com/Night424" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-plus"></i> Add to Friends</a></td>
+          </tr>
+          <tr>
+            <td><a href="https://www.linkedin.com/in/keane-van-gass-20b479267/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> Instant Msg</a></td>
+            <td><a href="#top8"><i class="fas fa-star"></i> Favorites</a></td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/Night424" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Repos</a></td>
+            <td><a href="#contact"><i class="fas fa-users"></i> Add to Group</a></td>
+          </tr>
+        </table>
+      </section>
 
-          <div class="education-year">
-            <h3>Year 3 (2025)</h3>
-            <h4>Cybersecurity</h4>
-            <ul>
-              <li>Administering Database Infrastructure (ADI632)</li>
-              <li>Advanced Design Patterns (ADP631)</li>
-              <li>Advanced Server Security (AD632)</li>
-              <li>Cybersecurity Professional Practice (CSP632)</li>
-              <li>Data Solution Development (DSD631)</li>
-              <li>IT Project Management (ITP631)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- URL box -->
+      <section class="ms-panel ms-url">
+        <h3 class="ms-panel-title">Keane's URL</h3>
+        <p class="ms-url-text">https://github.com/Night424</p>
+      </section>
 
-    <section id="projects" class="section">
-      <div class="section-container">
-        <h2><i class="fas fa-rocket" aria-hidden="true"></i> Projects</h2>
-        <div class="project-grid">
-          <div class="project-card fade-in">
-            <div class="project-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
-            <h3>Homelab SIEM Infrastructure</h3>
-            <p>Built a homelab SIEM to centralize log collection, parsing, and detection; developed detection rules and alerting pipelines to validate coverage.</p>
-            <p class="tech-used"><strong>Technologies used:</strong>Wazuh Manager & Dashboard, Ubuntu Server (VM), Windows 10/11 Endpoint, Sysmon</p>
-            <div class="project-links">
-              <a href="https://github.com/Night424/SOCAnalystSIEMProject" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
-            </div>
-          </div>
-          <div class="project-card fade-in">
-            <div class="project-icon"><i class="fas fa-puzzle-piece" aria-hidden="true"></i></div>
-            <h3>MC Server Setup Tool</h3>
-            <p>Automated server provisioning and management tool that simplifies configuration and mod management; demonstrates full-stack application packaging and deployment.</p>
-            <p class="tech-used"><strong>Technologies used:</strong> Electron, Node.js, JavaScript, HTML, CSS</p>
-            <div class="project-links">
-              <a href="https://github.com/Night424/NightsAutoMCSetup" class="btn btn-primary">View Project</a>
-            </div>
-          </div>
-          <div class="project-card fade-in">
-            <div class="project-icon"><i class="fas fa-key" aria-hidden="true"></i></div>
-            <h3>Password Strength Analyzer</h3>
-            <p>Analyzed password entropy and provided actionable remediation guidance to improve credential hygiene; useful for security assessments and user guidance.</p>
-            <p class="tech-used"><strong>Technologies used:</strong> Java</p>
-            <div class="project-links">
-              <a href="https://github.com/Night424/PSAnalyser" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
-            </div>
-          </div>
-          <div class="project-card fade-in">
-            <div class="project-icon"><i class="fas fa-bug" aria-hidden="true"></i></div>
-            <h3>Malware Sandbox</h3>
-            <p>Automated analysis and containment environment for malware samples; produced reports and indicators used for threat research and SIEM test cases.</p>
-            <p class="tech-used"><strong>Technologies used:</strong> Python, ElectronJS</p>
-            <div class="project-links">
-              <a href="https://github.com/Night424/sandboxSimulator" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- Interests = Skills -->
+      <section class="ms-panel">
+        <h3 class="ms-panel-title">Keane's Interests</h3>
+        <table class="ms-interests">
+          <tr>
+            <td class="ms-int-label">Languages</td>
+            <td>Python, JavaScript, Java, SQL</td>
+          </tr>
+          <tr>
+            <td class="ms-int-label">Systems</td>
+            <td>Data monitoring, data sync, APIs</td>
+          </tr>
+          <tr>
+            <td class="ms-int-label">Security</td>
+            <td>SIEM, Log Analysis, Threat Hunting, Incident Response</td>
+          </tr>
+          <tr>
+            <td class="ms-int-label">Tools</td>
+            <td>Docker, Node-Red, Grafana, PostgreSQL, Azure, Git, Sysmon</td>
+          </tr>
+          <tr>
+            <td class="ms-int-label">Certs</td>
+            <td>IT Specialist (HTML/CSS), Azure Data Fundamentals</td>
+          </tr>
+          <tr>
+            <td class="ms-int-label">Heroes</td>
+            <td>Claude, GPT and my managerGPT</td>
+          </tr>
+        </table>
+      </section>
 
-    <section id="skills" class="section">
-      <div class="section-container">
-        <h2><i class="fas fa-laptop-code" aria-hidden="true"></i> Skills</h2>
-        <div class="skills-container">
-          <div class="skill-category fade-in">
-            <h3>Programming & Scripting</h3>
-            <div class="skills-tags">
-              <span>Python</span>
-              <span>JavaScript</span>
-              <span>Java</span>
-              <span>SQL</span>
-              <span>Bash</span>
-            </div>
-          </div>
+      <!-- Details -->
+      <section class="ms-panel">
+        <h3 class="ms-panel-title">Details</h3>
+        <table class="ms-interests">
+          <tr><td class="ms-int-label">Status</td><td>Employed &amp; building</td></tr>
+          <tr><td class="ms-int-label">Here for</td><td>Systems dev, networking, side projects</td></tr>
+          <tr><td class="ms-int-label">Occupation</td><td>Junior Systems Developer — Solar</td></tr>
+          <tr><td class="ms-int-label">Education</td><td>Cybersecurity graduate</td></tr>
+        </table>
+      </section>
 
-          <div class="skill-category fade-in">
-            <h3>Security & SOC Skills</h3>
-            <div class="skills-tags">
-              <span>SIEM</span>
-              <span>Log Analysis</span>
-              <span>Threat Hunting</span>
-              <span>Incident Response</span>
-              <span>Malware Analysis</span>
-              <span>SQL for Analytics</span>
-            </div>
-          </div>
+    </aside>
 
-          <div class="skill-category fade-in">
-            <h3>Tools & Platforms</h3>
-            <div class="skills-tags">
-              <span>Docker</span>
-              <span>Azure</span>
-              <span>Git</span>
-            </div>
+    <!-- ================= RIGHT COLUMN ================= -->
+    <div class="ms-col-right">
+
+      <!-- Extended network -->
+      <section class="ms-panel ms-network">
+        <p>Keane is in your extended network</p>
+      </section>
+
+      <!-- Profile song player (fake) -->
+      <section class="ms-panel ms-player">
+        <h3 class="ms-panel-title">Keane's Profile Song</h3>
+        <div class="ms-player-body">
+          <button type="button" id="playBtn" class="ms-play"><i class="fas fa-play"></i></button>
+          <div class="ms-player-info">
+            <div class="ms-track">♪ Midnight Voltage (lofi loop)</div>
+            <div class="ms-progress"><div class="ms-progress-bar"></div></div>
+            <div class="ms-track-sub">NightDev &mdash; press play, it actually works ♫</div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="plans" class="section">
-      <div class="section-container">
-        <h2><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Future Plans</h2>
-        <div class="terminal-container fade-in">
-          <pre class="terminal-output">
-> roadmap
-
-- Expand SOC skills: detection engineering and incident response
-- Deploy and validate detection rules and alerting pipelines
-- Complete Security+ 
-- Develop detection playbooks and automated triage
-- Career goal: Secure a SOC Analyst role
-        </pre>
+      <!-- Blurbs = About -->
+      <section class="ms-panel">
+        <h3 class="ms-panel-title">Keane's Blurbs</h3>
+        <div class="ms-blurb">
+          <h4>About me:</h4>
+          <p>hi! i'm Keane — a <b>junior systems developer</b> in the <b>solar / renewable energy</b> space. i studied cybersecurity (and still love a good SIEM homelab), but these days i build and maintain the systems that keep solar data flowing, APIs, and monitoring.</p>
         </div>
-      </div>
-    </section>
+        <div class="ms-blurb">
+          <h4>Who I'd like to meet:</h4>
+          <p>systems &amp; backend devs, folks in clean energy tech, blue-teamers, and anyone who has strong opinions about data or log normalization. also recruiters.</p>
+        </div>
+      </section>
 
-    <section id="contact" class="section">
-      <div class="section-container">
-        <h2><i class="fas fa-envelope" aria-hidden="true"></i> Get In Touch</h2>
-        <div class="contact-container">
-          <div class="contact-info fade-in">
-            <p>Interested in cybersecurity, threat detection, or SOC operations? Let's connect!</p>
-            <div class="contact-links">
-              <a href="mailto:keanevgps3@gmail.com" class="contact-link">
-                <i class="fas fa-envelope" aria-hidden="true"></i> Email
-              </a>
-              <a href="https://github.com/Night424" target="_blank" rel="noopener noreferrer" class="contact-link">
-                <i class="fab fa-github" aria-hidden="true"></i> GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/keane-van-gass-20b479267/" target="_blank" rel="noopener noreferrer" class="contact-link">
-                <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
-              </a>
-              <a href="#" download class="contact-link btn btn-secondary" title="Download CV (PDF)">Download CV (PDF)</a>
-            </div>
+      <!-- Experience -->
+      <section class="ms-panel">
+        <h3 class="ms-panel-title">Work History</h3>
+
+        <div class="ms-exp">
+          <h4>Junior Systems Developer &mdash; Solar / Renewable Energy <span class="ms-time">Present</span></h4>
+          <p>Build and maintain the systems behind solar operations — data pipelines, APIs, and monitoring. Node-Red, Grafana, PostgreSQL</p>
+        </div>
+
+        <div class="ms-exp">
+          <h4>Intern Developer &mdash; OptiDB <span class="ms-time">Jul 2025 – Nov 2025</span></h4>
+          <p>Built offline-first functionality using PouchDB for local data storage and developed a GraphQL-based synchronization system to upload offline data once connectivity was restored. Added a real-time network status indicator to improve user awareness and overall application reliability.</p>
+        </div>
+
+        <div class="ms-exp">
+          <h4>SOC Analyst Homelab &mdash; Self-Directed <span class="ms-time">2025</span></h4>
+          <ul>
+            <li>Built a SIEM homelab to aggregate and normalize logs from multiple sources.</li>
+            <li>Implemented detection rules and alerting workflows; validated alerts via test cases.</li>
+            <li>Developed automated playbooks for triage and incident response.</li>
+            <li>Produced analysis reports and dashboards to measure detection coverage.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Top 8 = Projects/Repos -->
+      <section class="ms-panel" id="top8">
+        <h3 class="ms-panel-title">Keane's Friend Space <span class="ms-friendcount">(Top Repos)</span></h3>
+        <div class="ms-top8">
+
+          <div class="ms-friend ms-friend-static" title="Private company project">
+            <div class="ms-friend-pic"><i class="fas fa-plug"></i></div>
+            <div class="ms-friend-name">Client Data API</div>
+            <div class="ms-friend-sub">Solar energy data</div>
+            <span class="ms-tag ms-tag-closed">Private</span>
+          </div>
+
+          <div class="ms-friend ms-friend-static" title="Private company project">
+            <div class="ms-friend-pic"><i class="fas fa-table"></i></div>
+            <div class="ms-friend-name">Excel → Modbus</div>
+            <div class="ms-friend-sub">Device config tool</div>
+            <span class="ms-tag ms-tag-closed">Private</span>
+          </div>
+
+          <a class="ms-friend" href="https://github.com/Night424/SOCAnalystSIEMProject" target="_blank" rel="noopener noreferrer">
+            <div class="ms-friend-pic"><i class="fas fa-server"></i></div>
+            <div class="ms-friend-name">Homelab SIEM</div>
+            <div class="ms-friend-sub">Wazuh · Sysmon · Ubuntu</div>
+            <span class="ms-tag ms-tag-open">Open Source</span>
+          </a>
+
+          <a class="ms-friend" href="https://github.com/Night424/NightsAutoMCSetup" target="_blank" rel="noopener noreferrer">
+            <div class="ms-friend-pic"><i class="fas fa-puzzle-piece"></i></div>
+            <div class="ms-friend-name">MC Server Tool</div>
+            <div class="ms-friend-sub">Electron · Node.js</div>
+            <span class="ms-tag ms-tag-closed">Closed Source</span>
+          </a>
+
+        </div>
+
+        <details class="ms-archived">
+          <summary><i class="fas fa-box-archive"></i> Archived Projects <span class="ms-friendcount">(older / retired)</span></summary>
+          <div class="ms-archived-list">
+            <a class="ms-arch-item" href="https://github.com/Night424/PSAnalyser" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-key"></i>
+              <span><b>Password Analyzer</b> — Java · entropy scoring &amp; remediation tips</span>
+            </a>
+            <a class="ms-arch-item" href="https://github.com/Night424/sandboxSimulator" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-bug"></i>
+              <span><b>Malware Sandbox</b> — Python · Electron · sample analysis &amp; reporting</span>
+            </a>
+          </div>
+        </details>
+
+        <p class="ms-viewall"><a href="https://github.com/Night424" target="_blank" rel="noopener noreferrer">View All of Keane's Repos »</a></p>
+      </section>
+
+      <!-- Education -->
+      <section class="ms-panel">
+        <h3 class="ms-panel-title">School</h3>
+        <div class="ms-schools">
+          <div class="ms-school">
+            <h4>Year 1 (2023) — Programming Foundation</h4>
+            <p>Computer Architecture · Cloud Fundamentals · Core Web Dev · Digital Literacy · Ethics &amp; Network Architecture · Programme Design · Python · Robotic Development</p>
+          </div>
+          <div class="ms-school">
+            <h4>Year 2 (2024) — Software Development</h4>
+            <p>Beginner &amp; Advanced Java · Business Programming · DevOps Engineering · C# · Solutions Development</p>
+          </div>
+          <div class="ms-school">
+            <h4>Year 3 (2025) — Cybersecurity</h4>
+            <p>Database Infrastructure · Advanced Design Patterns · Advanced Server Security · Cybersecurity Professional Practice · Data Solution Dev · IT Project Management</p>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer>
-    <div class="footer-content">
-      <p>&copy; <span id="current-year">2025</span> NightDev</p>
-      <p class="footer-tagline">SOC Analyst | Cybersecurity</p>
+      <!-- Comments -->
+      <section class="ms-panel">
+        <h3 class="ms-panel-title">Keane's Comments</h3>
+        <div class="ms-comment">
+          <div class="ms-comment-pic"><i class="fas fa-terminal"></i></div>
+          <div class="ms-comment-body">
+            <b>The Homelab</b> <span class="ms-time">2 hrs ago</span>
+            <p>hey man, u got 1000 critical alerts</p>
+          </div>
+        </div>
+        <div class="ms-comment">
+          <div class="ms-comment-pic"><i class="fas fa-ghost"></i></div>
+          <div class="ms-comment-body">
+            <b>Steve</b> <span class="ms-time">yesterday</span>
+            <p>please finish the excel spreadsheet</p>
+          </div>
+        </div>
+        <div class="ms-comment">
+          <div class="ms-comment-pic"><i class="fab fa-linkedin"></i></div>
+          <div class="ms-comment-body">
+            <b>Recruiter</b> <span class="ms-time">last week</span>
+            <p>you available?</p>
+          </div>
+        </div>
+      </section>
+
     </div>
-  </footer>
+  </main>
 
   <script src="script.js" defer></script>
 </body>

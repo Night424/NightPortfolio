@@ -1,133 +1,127 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const intro = document.querySelector('.intro-animation');
-  
-  // Remove intro after animation completes
-  setTimeout(() => {
-    intro.classList.add('hide');
-    
-    // Remove from DOM after fade out completes
-    setTimeout(() => {
-      intro.remove();
-      
-      // Start typing animation after intro
-      startTypingAnimation();
-    }, 500);
-  }, 2000);
 
-  // Smooth scroll for navigation links with better handling
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href');
-      const targetSection = document.querySelector(targetId);
-      
-      if (targetSection) {
-        const headerHeight = document.querySelector('header').offsetHeight;
-        const targetPosition = targetSection.offsetTop - headerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-        
-        // Close mobile menu if open
-        document.getElementById('nav-toggle').checked = false;
-      }
-    });
-  });
-
-  // Enhanced scroll-triggered animations with staggered effect
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        // Add staggered delay for cards
-        const delay = index * 100;
-        entry.target.style.transitionDelay = `${delay}ms`;
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  // Observe all fade-in elements
-  document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Enhanced active nav link tracking with smooth updates
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".nav-link");
-  
-  const updateActiveLink = () => {
-    let current = '';
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const scrollY = window.scrollY;
-      
-      if (scrollY >= sectionTop - 200 && scrollY < sectionTop + sectionHeight - 200) {
-        current = section.getAttribute('id');
-      }
-    });
-    
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
+  // Live clock in the welcome bar
+  const clock = document.getElementById('clock');
+  const tick = () => {
+    if (clock) clock.textContent = new Date().toLocaleTimeString();
   };
-  
-  // Debounce scroll event for better performance
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateActiveLink();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-  
-  // Initial active link setup
-  updateActiveLink();
+  tick();
+  setInterval(tick, 1000);
 
-  // Add smooth page load animation
-  document.documentElement.style.scrollBehavior = 'smooth';
-});
+  // Current year in footer
+  const yr = document.getElementById('current-year');
+  if (yr) yr.textContent = new Date().getFullYear();
 
-function startTypingAnimation() {
-  const texts = ["Hi, I'm Keane.", "Cybersecurity Student.", "Aspiring SOC Analyst.", "Threat Detection."];
-  let i = 0, j = 0, currentText = "", isDeleting = false;
-  let typingSpeed = 150;
-  let deletingSpeed = 30;
-  let pauseBetween = 1000;
-
-  function type() {
-    const typedText = document.getElementById("typed-text");
-    
-    // Add cursor effect
-    typedText.innerHTML = currentText + '<span class="blinking-cursor">|</span>';
-    
-    if (!isDeleting && j < texts[i].length) {
-      currentText += texts[i][j++];
-      setTimeout(type, typingSpeed);
-    } else if (isDeleting && j > 0) {
-      currentText = currentText.slice(0, --j);
-      setTimeout(type, deletingSpeed);
-    } else {
-      isDeleting = !isDeleting;
-      if (!isDeleting) {
-        i = (i + 1) % texts.length;
-      }
-      setTimeout(type, pauseBetween);
-    }
+  // Retro visitor "hit counter" — random-ish, sticky per browser
+  const hit = document.getElementById('hitcount');
+  if (hit) {
+    let n = parseInt(localStorage.getItem('nightspace_hits') || '13337', 10) + 1;
+    localStorage.setItem('nightspace_hits', n);
+    hit.textContent = n.toLocaleString('en-US').padStart(6, '0');
   }
-  
-  // Start typing animation
-  type();
-}
+
+  // ===== Real profile song: a lofi loop synthesized with Web Audio =====
+  const playBtn = document.getElementById('playBtn');
+  const bar = document.querySelector('.ms-progress-bar');
+  if (playBtn && bar) {
+    let ctx = null, master = null, timer = null, step = 0, nextTime = 0;
+    let playing = false;
+
+    // "Midnight Voltage" — Am · F · C · G, dreamy lofi
+    const BPM = 72;
+    const stepDur = 60 / BPM / 2; // eighth notes
+    const N = f => 440 * Math.pow(2, (f - 69) / 12); // midi -> Hz
+    const chords = [
+      [57, 60, 64], // Am
+      [53, 57, 60], // F
+      [48, 52, 55], // C
+      [55, 59, 62]  // G
+    ];
+
+    function voice(freq, t, dur, type, gain, filterHz) {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      const lp = ctx.createBiquadFilter();
+      lp.type = 'lowpass';
+      lp.frequency.value = filterHz;
+      o.type = type;
+      o.frequency.value = freq;
+      // detune a hair for warmth
+      o.detune.value = (Math.random() * 8) - 4;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(gain, t + 0.04);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(lp); lp.connect(g); g.connect(master);
+      o.start(t); o.stop(t + dur + 0.05);
+    }
+
+    function drum(t, freq, dur, gain) {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(freq, t);
+      o.frequency.exponentialRampToValueAtTime(freq * 0.4, t + dur);
+      g.gain.setValueAtTime(gain, t);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(master);
+      o.start(t); o.stop(t + dur + 0.02);
+    }
+
+    function scheduler() {
+      while (nextTime < ctx.currentTime + 0.2) {
+        const bar16 = step % 16;
+        const chord = chords[Math.floor(bar16 / 4) % 4];
+        // pad chord on each beat
+        if (bar16 % 4 === 0) {
+          chord.forEach(m => voice(N(m + 12), nextTime, stepDur * 4.2, 'triangle', 0.05, 1400));
+          voice(N(chord[0] - 12), nextTime, stepDur * 4.2, 'sine', 0.10, 500); // bass
+        }
+        // soft kick on beats 1 & 3
+        if (bar16 === 0 || bar16 === 8) drum(nextTime, 90, 0.32, 0.5);
+        // gentle melody plink
+        if (bar16 % 4 === 2) voice(N(chord[2] + 24), nextTime, stepDur * 2, 'sine', 0.04, 3000);
+
+        nextTime += stepDur;
+        step++;
+      }
+    }
+
+    function start() {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      if (!master) {
+        master = ctx.createGain();
+        master.gain.value = 0.7;
+        master.connect(ctx.destination);
+      }
+      ctx.resume();
+      nextTime = ctx.currentTime + 0.1;
+      timer = setInterval(scheduler, 40);
+    }
+    function stop() {
+      clearInterval(timer);
+      if (ctx) ctx.suspend();
+    }
+
+    playBtn.addEventListener('click', () => {
+      playing = !playing;
+      playBtn.innerHTML = playing
+        ? '<i class="fas fa-pause"></i>'
+        : '<i class="fas fa-play"></i>';
+      bar.classList.toggle('playing', playing);
+      playing ? start() : stop();
+    });
+  }
+
+  // Smooth scroll for in-page anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+      if (id.length < 2) return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+});
